@@ -3,3 +3,7 @@ spring:
     name: anti-fraud-app
   profiles:
     active: local
+  datasource:
+  url: jdbc:postgresql://localhost:5432/postgres
+  liquibase:
+  shouldRun: true

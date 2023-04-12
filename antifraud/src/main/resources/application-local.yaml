@@ -15,8 +15,9 @@ management:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
-    username: user
+    username: users
     password: password
+    driver-class-name: org.postgresql.Driver
   liquibase:
     default-schema: anti_fraud
     change-log: db/changelog/db.changelog-master.yaml
