@@ -1,6 +1,10 @@
 package com.bank.antifraud.enitiy;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -9,8 +13,6 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
-@EqualsAndHashCode
 @Entity
 @Table(name = "audit")
 public class Audit {
@@ -43,10 +45,12 @@ public class Audit {
     @Column(name = "entity_json")
     private String entityJson;
 
-    // constructors, getters, setters
 }
 
-/*Entity классы являются классами, которые отображают таблицы в базе данных.
- Каждая таблица в базе данных имеет соответствующий класс-сущность в вашем приложении.
-  Это позволяет работать с данными, хранимыми в базе данных, как с обычными объектами в Java.
- */
+
+//Entity классы являются классами, которые отображают таблицы в базе данных.
+//Каждая таблица в базе данных имеет соответствующий класс-сущность в вашем приложении.
+//Это позволяет работать с данными, хранимыми в базе данных, как с обычными объектами в Java.
+
+
+

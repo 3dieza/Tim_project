@@ -1,13 +1,19 @@
 package com.bank.antifraud.enitiy;
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "suspicious_phone_transfers")
+
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table(name = "suspicious_phone_transfers")
 public class SuspiciousPhoneTransfer {
 
     @Id
@@ -29,11 +35,5 @@ public class SuspiciousPhoneTransfer {
     @Column(name = "suspicious_reason")
     private String suspiciousReason;
 
-    public SuspiciousPhoneTransfer(Long phoneTransferId, Boolean isBlocked, Boolean isSuspicious, String blockedReason, String suspiciousReason) {
-        this.phoneTransferId = phoneTransferId;
-        this.isBlocked = isBlocked;
-        this.isSuspicious = isSuspicious;
-        this.blockedReason = blockedReason;
-        this.suspiciousReason = suspiciousReason;
-    }
 }
+

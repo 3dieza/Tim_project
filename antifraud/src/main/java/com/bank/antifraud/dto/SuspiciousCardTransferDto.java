@@ -11,15 +11,5 @@ import lombok.Setter;
 @AllArgsConstructor
 public class SuspiciousCardTransferDto {
     private String blockedReason;
-
-//    private Long id;
-//
-//    private Long cardTransferId;
-//
-//    private Boolean isBlocked;
-//
-//    private Boolean isSuspicious;
-//
-
-//    private String suspiciousReason;
 }
+
