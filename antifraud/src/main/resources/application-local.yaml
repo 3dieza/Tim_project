@@ -2,6 +2,7 @@ server:
   port: 8086
   servlet:
     context-path: /api/anti-fraud
+
 management:
   server:
     port: 8186
@@ -12,16 +13,19 @@ management:
     web:
       exposure:
         include: '*'
+
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: users
     password: password
     driver-class-name: org.postgresql.Driver
+
   liquibase:
     default-schema: anti_fraud
     change-log: db/changelog/db.changelog-master.yaml
     enabled: ${LIQUIBASE_ENABLED:true}
     drop-first: ${LIQUIBASE_DROP_FIRST:false}
+    
   application:
     name: anti-fraud-app

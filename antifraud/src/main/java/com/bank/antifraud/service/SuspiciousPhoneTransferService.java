@@ -1,14 +1,14 @@
 package com.bank.antifraud.service;
 
 import com.bank.antifraud.dto.SuspiciousPhoneTransferDto;
-import com.bank.antifraud.enitiy.SuspiciousPhoneTransfer;
+import com.bank.antifraud.enitiy.SuspiciousPhoneTransfers;
 
 
 public interface SuspiciousPhoneTransferService {
 
-    SuspiciousPhoneTransfer save(SuspiciousPhoneTransferDto suspiciousPhoneTransferDto);
+    SuspiciousPhoneTransfers save(SuspiciousPhoneTransferDto suspiciousPhoneTransferDto);
 
-    SuspiciousPhoneTransfer getById(Long id);
+    SuspiciousPhoneTransfers getById(Long id);
 
     void deleteById(Long id);
 }

@@ -11,3 +11,4 @@ public interface AuditMapper {
     @Mapping(target = "id", ignore = true)
     Audit toAudit(AuditDto auditDto);
 }
+

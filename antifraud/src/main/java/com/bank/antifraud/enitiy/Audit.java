@@ -6,7 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Getter
@@ -30,15 +36,16 @@ public class Audit {
     @Column(name = "created_by")
     private String createdBy;
 
+    @NotNull
     @Column(name = "modified_by")
     private String modifiedBy;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;
-
+    @NotNull
     @Column(name = "modified_at")
     private LocalDateTime modifiedAt;
-
+    @NotNull
     @Column(name = "new_entity_json")
     private String newEntityJson;
 

@@ -11,3 +11,4 @@ public interface SuspiciousCardTransferMapper {
 
     SuspiciousCardTransfer toSuspiciousCardTransfer(SuspiciousCardTransferDto suspiciousCardTransferDto);
 }
+
