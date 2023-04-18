@@ -1,10 +1,12 @@
-package com.bank.antifraud.enitiy;
+package com.bank.antifraud.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
+import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,14 +17,16 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
+
+@Entity
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
 @Table(name = "audit")
 public class Audit {
-
+    //сущность аудита
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -41,8 +45,10 @@ public class Audit {
     private String modifiedBy;
 
     @Column(name = "created_at")
+    @CreationTimestamp
     private LocalDateTime createdAt;
     @NotNull
+    @UpdateTimestamp
     @Column(name = "modified_at")
     private LocalDateTime modifiedAt;
     @NotNull

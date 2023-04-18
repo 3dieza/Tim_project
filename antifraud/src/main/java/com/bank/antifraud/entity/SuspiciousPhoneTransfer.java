@@ -1,9 +1,10 @@
-package com.bank.antifraud.enitiy;
+package com.bank.antifraud.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,20 +14,22 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-@Entity
+
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "suspicious_account_transfers")
-public class SuspiciousAccountTransfers {
-
+@Entity
+@Table(name = "suspicious_phone_transfers")
+public class SuspiciousPhoneTransfer {
+    //сущность подозрительных переводов средств по номеру телефона
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "account_transfer_id", unique = true)
-    private Long accountTransferId;
+    @Column(name = "phone_transfer_id", unique = true)
+    private Long phoneTransferId;
 
     @Column(name = "is_blocked")
     private Boolean isBlocked;
@@ -40,7 +43,5 @@ public class SuspiciousAccountTransfers {
     @Column(name = "suspicious_reason")
     private String suspiciousReason;
 
-
 }
-
 

@@ -1,9 +1,10 @@
-package com.bank.antifraud.enitiy;
+package com.bank.antifraud.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,23 +14,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
-
+@Entity
 @Getter
 @Setter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-@Table(name = "suspicious_card_transfer", schema = "anti_fraud")
-
-
-public class SuspiciousCardTransfer {
-
+@Table(name = "suspicious_account_transfers")
+public class SuspiciousAccountTransfer {
+    //сущность подозрительных переводов средств на счета
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "card_transfer_id", unique = true)
-    private Long cardTransferId;
+    @Column(name = "account_transfer_id", unique = true)
+    private Long accountTransferId;
 
     @Column(name = "is_blocked")
     private Boolean isBlocked;
@@ -44,10 +43,5 @@ public class SuspiciousCardTransfer {
     private String suspiciousReason;
 
 }
-
-//Этот код создает сущность SuspiciousCardTransfer, которая соответствует таблице anti_fraud.suspicious_card_transfer
-//с шестью столбцами (id, card_transfer_id, is_blocked, is_suspicious, blocked_reason, suspicious_reason).
-//Также в коде используется Lombok для создания геттеров, сеттеров, конструкторов и методов equals, hashCode и toString.
-
 
 
