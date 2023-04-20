@@ -8,25 +8,39 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 
+/**
+ * Конфигурация безопасности приложения.
+ * <p>
+ * Настраивает доступ к ресурсам для авторизованных и неавторизованных пользователей.
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /**
+     * Конфигурирует доступ к ресурсам для пользователей.
+     *
+     * @param http HttpSecurity объект для настройки доступа к ресурсам.
+     * @throws Exception исключение, возникающее при настройке доступа к ресурсам.
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-////                .antMatchers(HttpMethod.PUT, "/api/anti-fraud/audits").authenticated() // разрешаем аутентифицированный доступ к PUT запросу
-//                .antMatchers("/api/anti-fraud/**").authenticated()
-//                .antMatchers("/audits", "/audits/**").permitAll()
-//                .and()
-//                .httpBasic();
-                .antMatchers("/**").permitAll()
+// разрешить доступ к Swagger UI без аутентификации
+                .antMatchers("/swagger-ui.html", "/swagger-ui/").permitAll()
+                .antMatchers("/").permitAll()
                 .and()
                 .httpBasic()
                 .and()
                 .csrf().disable();
     }
 
+    /**
+     * Конфигурирует авторизацию пользователей.
+     *
+     * @param auth AuthenticationManagerBuilder объект для настройки авторизации пользователей.
+     * @throws Exception исключение, возникающее при настройке авторизации пользователей.
+     */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()

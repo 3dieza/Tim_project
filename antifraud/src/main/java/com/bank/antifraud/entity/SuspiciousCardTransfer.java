@@ -12,41 +12,52 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 
+/**
+ * Сущность подозрительных переводов средств на карты.
+ */
 @Getter
 @Setter
 @ToString
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table(name = "suspicious_card_transfer", schema = "anti_fraud")
-
-
 public class SuspiciousCardTransfer {
-    //    сущность подозрительных переводов средств на карты
+    /*
+
+    Идентификатор сущности.
+    */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+    /**
+     * Идентификатор перевода на карту.
+     */
     @Column(name = "card_transfer_id", unique = true)
     private Long cardTransferId;
-
+    /**
+     * Флаг блокировки перевода.
+     */
     @Column(name = "is_blocked")
     private Boolean isBlocked;
-
+    /**
+     * Флаг подозрительности перевода.
+     */
     @Column(name = "is_suspicious")
     private Boolean isSuspicious;
-    @NotNull
+    /**
+     * Причина блокировки перевода.
+     */
+
     @Column(name = "blocked_reason")
     private String blockedReason;
-
+    /**
+     * Причина подозрительности перевода.
+     */
     @Column(name = "suspicious_reason")
     private String suspiciousReason;
-
-
 }
 
 //Этот код создает сущность SuspiciousCardTransfer, которая соответствует таблице anti_fraud.suspicious_card_transfer

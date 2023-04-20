@@ -26,6 +26,6 @@ spring:
     change-log: db/changelog/db.changelog-master.yaml
     enabled: ${LIQUIBASE_ENABLED:true}
     drop-first: ${LIQUIBASE_DROP_FIRST:false}
-    
-  application:
-    name: anti-fraud-app
+
+
+
